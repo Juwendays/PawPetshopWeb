@@ -21,7 +21,7 @@ class UserController extends Controller
 
                 if(password_verify($request->password, $user->password)){
                     return response()->json([
-                        'success' => 0,
+                        'success' => 1,
                         'message' => 'Selamat Datang '.$user->name,
                         'user'    => $user
                     ]);
@@ -38,6 +38,7 @@ class UserController extends Controller
             return $this->error('Email Tidak Terdaftar');
     }
 
+    //Validasi isi user tidak boleh kosong
     public function register(Request $request){
         $validasi = Validator::make($request->all(),[
             'name' => 'required',
@@ -61,7 +62,7 @@ class UserController extends Controller
             if($user){
                  //Mengembalikan nilai jika register berhasil
                 return response()->json([
-                    'success' => 0,
+                    'success' => 1,
                     'message' => 'Selamat Datang Register Berhasil',
                     'user'    => $user
                 ]);  
