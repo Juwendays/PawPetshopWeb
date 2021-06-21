@@ -14,7 +14,7 @@ class Transaksi extends Model
 
     //untuk berelasi dengan transaksi detail
     public function details(){
-         return $this->hasMany(Trasaksi::class, "transaksi_id","id");
+         return $this->hasMany(TransaksiDetail::class, "transaksi_id","id");
         }
 
     public function user(){

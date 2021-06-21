@@ -58,13 +58,37 @@ class TransaksiController extends Controller
                 return response()->json([
                     'success' => 1,
                     'message' => 'Transaksi Berhasil',
-                    'user'    => collect($transaksi)
+                    'transaksi' => collect($transaksi)
                 ]);  
             }else{
                 \DB::rollback();
                 $this->error("Transaksi Gagal");
             }
     }    
+
+    public function history($id){
+        
+        $transaksis = Transaksi::with(['user'])->whereHas('user', function ($query) use ($id){
+            $query->whereId($id);
+        })->get();
+
+        foreach ($transaksis as $transaksi){
+            $details = $transaksi->details;
+            foreach ($details as $detail){
+                $detail->produk;
+            }
+        }
+
+        if (!empty($transaksi)){
+            return response()->json([
+                'success' => 1,
+                'message' => 'Transaksi Berhasil',
+                'transaksis'    => collect($transaksi)
+            ]);  
+        }else{
+            $this->error("Transaksi Gagal");
+        }
+    }
 
     public function error($pesan){
         return response()->json([
