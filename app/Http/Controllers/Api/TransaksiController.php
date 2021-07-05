@@ -79,11 +79,11 @@ class TransaksiController extends Controller
             }
         }
 
-        if (!empty($transaksi)){
+        if (!empty($transaksis)){
             return response()->json([
                 'success' => 1,
                 'message' => 'Transaksi Berhasil',
-                'transaksis'    => collect($transaksi)
+                'transaksis'    => collect($transaksis)
             ]);  
         }else{
             $this->error("Transaksi Gagal");
