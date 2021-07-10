@@ -46,6 +46,18 @@
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
       </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+          <div class="image">
+            <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          </div>
+          <div class="info">
+            <a href="#" class="d-block">Admin</a>
+          </div>
+        </div>
+      </li>
+
+      
     </ul>
 
     <!-- SEARCH FORM -->
@@ -59,6 +71,9 @@
         </div>
       </div>
     </form>
+
+
+
   </nav>
   <!-- /.navbar -->
 
@@ -74,14 +89,7 @@
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-        </div>
-        <div class="info">
-          <a href="#" class="d-block">Admin</a>
-        </div>
-      </div>
+    
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
@@ -103,6 +111,15 @@
               <i class="nav-icon fas fa-shopping-bag"></i>
               <p>
                 Produk
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{ route('transaksi.index') }}" class="nav-link">
+              <i class="nav-icon fas fa-shopping-bag"></i>
+              <p>
+                Transaksi
               </p>
             </a>
           </li>
